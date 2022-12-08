@@ -1,7 +1,35 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const StokesProductCard = ({ categoryProduct }) => {
-    const { productName, mrp, costPrice, cameFrom, date, quantity,image } = categoryProduct
+    const { productName, mrp, costPrice, cameFrom, date, quantity,image, _id } = categoryProduct
+
+    const [prod, setProd] = useState([])
+
+    useEffect(() =>{
+        axios.get('http://localhost:5000/stocksProduct')
+        .then(data => setProd(data.data))
+    } ,[])
+
+    const handleDeleteAdds = id =>{
+        const proceed = window.confirm('Are you sure, want to delete this Adds?')
+        if(proceed){
+            fetch( `http://localhost:5000/stocksProduct/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.deletedCount > 0) {
+                    toast.success('adds Deleted Successfully')
+                    const remaining = prod.filter(pro => pro._id !== id)
+                    setProd(remaining)
+                    window.location.reload()
+                }
+            })
+        }
+  }
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -17,7 +45,7 @@ const StokesProductCard = ({ categoryProduct }) => {
                     <p>Purchased from - {cameFrom}</p>
                     <p>Purchased date - {date}</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button onClick={() => handleDeleteAdds(_id)} className="btn btn-primary">Delete</button>
                     </div>
                 </div>
             </div>

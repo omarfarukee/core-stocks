@@ -12,6 +12,7 @@ import AddProducts from './Pages/AddProducts/AddProducts';
 import BorrowedStokes from './Pages/borrowedStokes/BorrowedStokes';
 import AddedBorrowedStokes from './Pages/AddedBorrowedStokes/AddedBorrowedStokes';
 import AddReturnStokes from './Pages/AddRrturnStokes/AddReturnStokes';
+import ReturnProduct from './Pages/Return/ReturnProduct';
 
 function App() {
   const router = createBrowserRouter([
@@ -63,9 +64,9 @@ function App() {
           },
           {
             path:'/return/:id',
-            element:<PrivateRoute></PrivateRoute>,
+            element:<PrivateRoute><ReturnProduct></ReturnProduct></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/borrowed/${params.id}`)
+            return fetch(`http://localhost:5000/return/${params.id}`)
             }
           }
         ]
