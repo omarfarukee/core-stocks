@@ -14,6 +14,9 @@ const NavBer = () => {
     const headItems = <>
        
         <li className='font-bold'><Link to='/home'>Home</Link></li>
+
+        <li className='font-bold'><Link to='/addProducts'>Add Product</Link></li>
+        
         {
             user?.uid ? <></> :  <li className='font-bold '><Link to='/login'> login</Link></li>
         }

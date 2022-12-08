@@ -23,6 +23,7 @@ const AbcProducts = () => {
 
                     {
                         categories?.map(category => <AbcProductCard
+                        key={category._id}
                         category={category}
                         ></AbcProductCard>)
                     }

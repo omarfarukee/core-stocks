@@ -8,6 +8,7 @@ import Login from './Pages/Login/Login';
 import CreateUser from './Pages/CreateUser/CreateUser';
 import StocksProduct from './StocksProduct/StocksProduct';
 import PrivateRoute from './Private/PrivateRoute';
+import AddProducts from './Pages/AddProducts/AddProducts';
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +16,10 @@ function App() {
         path: '/',
         element:<Main></Main>,
         children:[
+          {
+            path:'/',
+            element:<Home></Home>
+          },
           {
             path:'/home',
             element:<Home></Home>
@@ -26,6 +31,10 @@ function App() {
           {
             path:'/signUp',
             element:<CreateUser></CreateUser>
+          },
+          {
+            path:'/addProducts',
+            element:<PrivateRoute><AddProducts></AddProducts></PrivateRoute>
           },
           {
             path:'/stocksProduct/:id',
