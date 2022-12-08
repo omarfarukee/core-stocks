@@ -17,6 +17,7 @@ const NavBer = () => {
 
         <li className='font-bold'><Link to='/addProducts'>Add Product</Link></li>
         <li className='font-bold'><Link to='/borrowedStokes'>Add Borrowed Products</Link></li>
+        <li className='font-bold'><Link to='/returnStokes'>Add Return (prod)</Link></li>
 
         {
             user?.uid ? <></> :  <li className='font-bold '><Link to='/login'> login</Link></li>

@@ -11,6 +11,7 @@ import PrivateRoute from './Private/PrivateRoute';
 import AddProducts from './Pages/AddProducts/AddProducts';
 import BorrowedStokes from './Pages/borrowedStokes/BorrowedStokes';
 import AddedBorrowedStokes from './Pages/AddedBorrowedStokes/AddedBorrowedStokes';
+import AddReturnStokes from './Pages/AddRrturnStokes/AddReturnStokes';
 
 function App() {
   const router = createBrowserRouter([
@@ -43,6 +44,10 @@ function App() {
             element:<PrivateRoute><BorrowedStokes></BorrowedStokes></PrivateRoute>
           },
           {
+            path:'/returnStokes',
+            element:<PrivateRoute><AddReturnStokes></AddReturnStokes></PrivateRoute>
+          },
+          {
             path:'/stocksProduct/:id',
             element:<PrivateRoute><StocksProduct></StocksProduct></PrivateRoute>,
             loader:async ({params}) =>{
@@ -52,6 +57,13 @@ function App() {
           {
             path:'/borrowed/:id',
             element:<PrivateRoute><AddedBorrowedStokes></AddedBorrowedStokes></PrivateRoute>,
+            loader:async ({params}) =>{
+            return fetch(`http://localhost:5000/borrowed/${params.id}`)
+            }
+          },
+          {
+            path:'/return/:id',
+            element:<PrivateRoute></PrivateRoute>,
             loader:async ({params}) =>{
             return fetch(`http://localhost:5000/borrowed/${params.id}`)
             }
