@@ -6,6 +6,8 @@ import Main from './Layout/Main';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import CreateUser from './Pages/CreateUser/CreateUser';
+import StocksProduct from './StocksProduct/StocksProduct';
+import PrivateRoute from './Private/PrivateRoute';
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +27,13 @@ function App() {
             path:'/signUp',
             element:<CreateUser></CreateUser>
           },
+          {
+            path:'/stocksProduct/:id',
+            element:<PrivateRoute><StocksProduct></StocksProduct></PrivateRoute>,
+            loader:async ({params}) =>{
+            return fetch(`http://localhost:5000/stocksProduct/${params.id}`)
+            }
+          }
         ]
       }
   ])

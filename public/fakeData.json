@@ -1,14 +1,57 @@
 [
     {
-        "name" : "A -(T-shirt)",
-        "image" : "https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/11/Tshirt-design.jpg?auto=format&q=60&w=2060&h=2060&fit=crop&crop=faces"
+        "categoryId": "63917f1a9d1e4e778fde857a",
+        "productName":"White-t-shirt",
+        "quantity":10,
+        "date":"10/12/2022",
+        "costPrice":2000,
+        "mrp":3000,
+        "cameFrom": "svc LTD. mumbai"
     },
     {
-        "name" : "B -(Pants)",
-        "image" : "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=600"
+        "categoryId": "63917f1a9d1e4e778fde857a",
+        "productName":"Black-t-shirt",
+        "quantity":10,
+        "date":"10/12/2022",
+        "costPrice":2000,
+        "mrp":3000,
+        "cameFrom": "CDH ltd"
     },
     {
-        "name" : "C -(Shoes)",
-        "image" : "https://i0.wp.com/post.healthline.com/wp-content/uploads/2022/02/1677020-Market-Chronic_Shoes-for-Neuropathy-with-Comfort-In-Mind-1296x728-Header-_fcba44.jpg?w=1155&h=1528"
+        "categoryId": "63917f1a9d1e4e778fde857b",
+        "productName":"jeans-pant",
+        "quantity":10,
+        "date":"10/12/2022",
+        "costPrice":5000,
+        "mrp":7000,
+        "cameFrom": "jenen LTD."
+    },
+    {
+        "categoryId": "63917f1a9d1e4e778fde857b",
+        "productName":"gabardine pant",
+        "quantity":10,
+        "date":"10/12/2022",
+        "costPrice":5000,
+        "mrp":7000,
+        "cameFrom": "Them Pant LTD."
+    },
+    {
+        "categoryId": "63917f1a9d1e4e778fde857c",
+        "productName":"Shoes",
+        "quantity":8,
+        "date":"10/12/2022",
+        "costPrice":8000,
+        "mrp":12000,
+        "cameFrom": "Blaks LTD"
+    },
+    {
+        "categoryId": "63917f1a9d1e4e778fde857c",
+        "productName":"cades",
+        "quantity":8,
+        "date":"10/12/2022",
+        "costPrice":8000,
+        "mrp":12000,
+        "cameFrom": "Cady Cades"
     }
+
 ]

@@ -7,7 +7,7 @@ const AbcProducts = () => {
     const { data: categories = [] } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await fetch('fakeData.json');
+            const res = await fetch('http://localhost:5000/categories');
             const data = await res.json();
             console.log(data)
             return data;
@@ -19,12 +19,14 @@ const AbcProducts = () => {
                 <div className='flex justify-center'>
                     <h1 className='text-3xl font-bold'>Products Category</h1>
                 </div>
-                <div>
+                <div className='grid grid-cols-3 ml-10'>
+
                     {
                         categories?.map(category => <AbcProductCard
                         category={category}
                         ></AbcProductCard>)
                     }
+
                 </div>
         </div>
     );
