@@ -1,11 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const NavBer = () => {
+    const {logOut, user} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const handleLogOut = () => {
+        logOut()
+          .then(() => {})
+          .catch(error => console.error(error))
+        navigate('/')
+      }
     const headItems = <>
+       
         <li className='font-bold'><Link to='/home'>Home</Link></li>
-        <li className='font-bold '><Link to='/login'> login</Link></li>
-        <li className='font-bold '><Link to='/signUp'>Register</Link></li>
+        {
+            user?.uid ? <></> :  <li className='font-bold '><Link to='/login'> login</Link></li>
+        }
+       {
+             user?.uid ? <></> : <li className='font-bold '><Link to='/signUp'>Register</Link></li>
+       }
+       
     
 
     </>
@@ -29,7 +44,13 @@ const NavBer = () => {
                 </ul>
             </div>
             <div className="navbar-end" title='Download resume'>
-           <button className='btn btn-warning'>start</button>
+            {
+            user?.uid ? <p className='mr-3 font-bold'>'{ user.displayName}'</p> : <p className='font-bold  mr-3'>'user not login'</p>
+          }
+                {
+                    user?.uid ? <button className='btn btn-warning' onClick={handleLogOut}>Log Out</button> : <></>
+                } 
+               
             </div>
         </div>
     );

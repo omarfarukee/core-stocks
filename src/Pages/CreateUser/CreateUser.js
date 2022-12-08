@@ -6,16 +6,17 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const CreateUser = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateUserProfile } = useContext(AuthContext)
     const [error, setError] = useState('');
     const navigate = useNavigate()
     const handleRegister = data => {
         // console.log(data)
         createUser(data.email, data.password)
         .then(result => {
-
+            setError('')
             const user = result.user;
             console.log(user);
+            handleProfile(data.name)
             toast.success('User Create SuccessFully')
             navigate('/home')
         })
@@ -25,6 +26,15 @@ const CreateUser = () => {
         });
 
 
+    }
+    const handleProfile = (name, photoURL) =>{
+        const profile ={
+            displayName : name,
+            photoURL : photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => console.error(error))
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
