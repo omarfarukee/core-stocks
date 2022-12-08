@@ -9,6 +9,8 @@ import CreateUser from './Pages/CreateUser/CreateUser';
 import StocksProduct from './StocksProduct/StocksProduct';
 import PrivateRoute from './Private/PrivateRoute';
 import AddProducts from './Pages/AddProducts/AddProducts';
+import BorrowedStokes from './Pages/borrowedStokes/BorrowedStokes';
+import AddedBorrowedStokes from './Pages/AddedBorrowedStokes/AddedBorrowedStokes';
 
 function App() {
   const router = createBrowserRouter([
@@ -37,10 +39,21 @@ function App() {
             element:<PrivateRoute><AddProducts></AddProducts></PrivateRoute>
           },
           {
+            path:'/borrowedStokes',
+            element:<PrivateRoute><BorrowedStokes></BorrowedStokes></PrivateRoute>
+          },
+          {
             path:'/stocksProduct/:id',
             element:<PrivateRoute><StocksProduct></StocksProduct></PrivateRoute>,
             loader:async ({params}) =>{
             return fetch(`http://localhost:5000/stocksProduct/${params.id}`)
+            }
+          },
+          {
+            path:'/borrowed/:id',
+            element:<PrivateRoute><AddedBorrowedStokes></AddedBorrowedStokes></PrivateRoute>,
+            loader:async ({params}) =>{
+            return fetch(`http://localhost:5000/borrowed/${params.id}`)
             }
           }
         ]

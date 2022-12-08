@@ -1,10 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddProducts = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,formState: { errors } } = useForm();
     const imageHosKey = '29473dd4ab78ebc95009722bc0558d38';
+    const navigate = useNavigate()
     const handleAddItem = (data) => {
         console.log(data)
 
@@ -32,8 +34,7 @@ const AddProducts = () => {
                 categoryId: data.categoryId,
                 date: data.date,
                 cameFrom:data.cameFrom,
-                phone:data.details,
-              
+                quantity: data.quantity
 
             }
 
@@ -53,15 +54,18 @@ const AddProducts = () => {
                 console.log(result)
                 alert('its can take few moment please wait')
                 toast.success('added Item successfully')
-                //  navigate('')
+             navigate('/')
             })
 
           }
         })
     }
+
+
+
     return (
         <div>
-            <div className='flex justify-center text-3xl font-bold'><h1>Add item</h1></div>
+            <div className='flex justify-center text-3xl font-bold'><h1>Add item(Purchased by a factory or agency)</h1></div>
             <form onSubmit={handleSubmit(handleAddItem)}>
 
                 <div className='lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 bg-gray-300 p-5 rounded-2xl ml-3'>
