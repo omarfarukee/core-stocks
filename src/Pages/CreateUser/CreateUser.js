@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const CreateUser = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const {createUser} = useContext(AuthContext)
     const [error, setError] = useState('');
-
+    const navigate = useNavigate()
     const handleRegister = data => {
-        console.log(data)
+        // console.log(data)
+        createUser(data.email, data.password)
+        .then(result => {
+
+            const user = result.user;
+            console.log(user);
+            toast.success('User Create SuccessFully')
+            navigate('/home')
+        })
+        .catch(error => {
+            console.log(error)
+            setError(error.message)
+        });
+
+
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>

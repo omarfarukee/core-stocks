@@ -5,7 +5,7 @@ const NavBer = () => {
     const headItems = <>
         <li className='font-bold'><Link to='/home'>Home</Link></li>
         <li className='font-bold '><Link to='/login'> login</Link></li>
-        <li className='font-bold '><Link to='/register'>Register</Link></li>
+        <li className='font-bold '><Link to='/signUp'>Register</Link></li>
     
 
     </>

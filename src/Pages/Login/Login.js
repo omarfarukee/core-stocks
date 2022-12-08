@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     const [error, setError] = useState('')
     const { register,formState: { errors }, handleSubmit } = useForm();
-
     const handleLogin = data => {
-        const email = data.email 
-        const password = data.password
+       
             console.log(data)
     }
 
@@ -46,7 +44,7 @@ const Login = () => {
                 {error && <p className='text-red-600'>{error}</p>}
                 </div>
                 <div className='flex justify-center'>
-                    <p>new in here?<Link to='/register' className='text-blue-600'>Register now</Link></p>
+                    <p>new in here?<Link to='/signUp' className='text-blue-600'>Register now</Link></p>
                 </div>
              
                <div className="divider">OR</div>

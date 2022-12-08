@@ -22,7 +22,7 @@ function App() {
             element:<Login></Login>
           },
           {
-            path:'/register',
+            path:'/signUp',
             element:<CreateUser></CreateUser>
           },
         ]
