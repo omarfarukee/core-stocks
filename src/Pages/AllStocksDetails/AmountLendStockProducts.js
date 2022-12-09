@@ -56,7 +56,7 @@ const AmountLendStockProducts = () => {
                                 <th>{i + 1}</th>
                                 <td><img src={lends.image} alt=""className="w-24 rounded-full" /></td>
                                 <td>{lends.productName}</td>
-                                <td>{lends.landTo}</td>
+                                <td>{lends.lendTo}</td>
                                 <td>{lends.quantity}</td>
                                 <td>{lends.mrp}Rs.</td>
                                 <td>{lends.costPrice}Rs.</td>

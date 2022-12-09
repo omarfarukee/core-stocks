@@ -34,7 +34,7 @@ const AmountReturnsBackProducts = () => {
     return (
         <div>
               <div className='flex justify-center'>
-                     <h2 className="text-3xl mt-5 mb-3 font-bold">Amount of stock Returned(stock out) : {returnBackStocks.length}</h2>
+                     <h2 className="text-3xl mt-5 mb-3 font-bold">Amount of stock Return (stock out) : {returnBackStocks.length}</h2>
                 </div>
                 <div className="overflow-x-auto p-10">
                 <table className="table w-full">
@@ -56,7 +56,7 @@ const AmountReturnsBackProducts = () => {
                                 <th>{i + 1}</th>
                                 <td><img src={returns.image} alt=""className="w-24 rounded-full" /></td>
                                 <td>{returns.productName}</td>
-                                <td>{returns.returnTo}</td>
+                                <td>{returns.returnedTo}</td>
                                 <td>{returns.quantity}</td>
                                 <td>{returns.mrp}Rs.</td>
                                 <td>{returns.costPrice}Rs.</td>

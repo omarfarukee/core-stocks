@@ -15,8 +15,8 @@ const AbcProducts = () => {
         }
     })
     return (
-        <div>
-                <div className='flex justify-center'>
+        <div className='mt-10 mb-10'>
+                <div className='flex justify-center mb-10'>
                     <h1 className='text-3xl font-bold'>Products Category</h1>
                 </div>
                 <div className='grid grid-cols-3 ml-10'>

@@ -41,8 +41,8 @@ const StokesProductCard = ({ categoryProduct }) => {
 
                     <h2 className="card-title">{productName}</h2>
                     <p>Quantity - {quantity}</p>
-                    <p>Cost - {costPrice}</p>
-                    <p>MRP - {mrp}</p>
+                    <p>Cost - {costPrice} Rs.</p>
+                    <p>MRP - {mrp} Rs.</p>
                     <p>Purchased from - {cameFrom}</p>
                     <p>Purchased date - {date}</p>
                     <div className="card-actions">
