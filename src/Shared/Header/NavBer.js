@@ -13,11 +13,12 @@ const NavBer = () => {
       }
     const headItems = <>
        
-        <li className='font-bold'><Link to='/home'>Home</Link></li>
-
-        <li className='font-bold'><Link to='/addProducts'>Add Product</Link></li>
-        <li className='font-bold'><Link to='/borrowedStokes'>Add Borrowed Products</Link></li>
-        <li className='font-bold'><Link to='/returnStokes'>Add Return (prod)</Link></li>
+        <li className='font-bold text-sm'><Link to='/home'>Home</Link></li>
+        <li className='font-bold text-sm'><Link to='/addProducts'>Add Product</Link></li>
+        <li className='font-bold text-sm'><Link to='/borrowedStokes'>Add Borrowed Products</Link></li>
+        <li className='font-bold text-sm'><Link to='/returnStokes'>Add Return (prod)</Link></li>
+        <li className='font-bold text-sm'><Link to='/addSoldProduct'>Add sold(prod)</Link></li>
+        <li className='font-bold text-sm'><Link to='/addLendProduct'>Add lend(prod)</Link></li>
 
         {
             user?.uid ? <></> :  <li className='font-bold '><Link to='/login'> login</Link></li>

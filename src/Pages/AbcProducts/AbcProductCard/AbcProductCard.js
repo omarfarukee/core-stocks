@@ -12,10 +12,16 @@ const AbcProductCard = ({ category }) => {
                 <div className="card-body">
                     <h2 className="card-title">Category- {name}</h2>
                     {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
-                    <div className="card-actions mt-20">
-                     <Link to={`/stocksProduct/${_id}`}><button className="btn btn-primary w-36">See Stokes</button></Link> 
-                     <Link to={`/borrowed/${_id}`}><button className="btn btn-primary">Borrowed Stokes</button></Link> 
-                     <Link to={`/return/${_id}`}><button className="btn btn-primary ml-20">Return Stokes</button></Link> 
+                    <div className="card-actions mt-20 grid grid-cols-2">
+
+                     <Link to={`/stocksProduct/${_id}`}><button className="btn btn-sm w-36 h-12">See Stokes</button></Link> 
+                     <Link to={`/borrowed/${_id}`}><button className="btn btn-sm w-36 h-12">Borrowed Stokes</button></Link> 
+                     <Link to={`/return/${_id}`}><button className="btn btn-sm w-36 h-12">Returned Stokes</button></Link> 
+
+                     <Link to={`/sold/${_id}`}><button className="btn btn-sm w-36 h-12">Sold(product)</button></Link> 
+                     <Link to={`/lend/${_id}`}><button className="btn btn-sm  w-36 h-12">Lend(product)</button></Link> 
+                     <Link to={`/returnBack/${_id}`}><button className="btn btn-sm  w-36 h-12">Return Back(product)</button></Link> 
+
                     </div>
                 </div>
             </div>
