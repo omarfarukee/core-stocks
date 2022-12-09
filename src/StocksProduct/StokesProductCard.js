@@ -12,8 +12,8 @@ const StokesProductCard = ({ categoryProduct }) => {
         .then(data => setProd(data.data))
     } ,[])
 
-    const handleDeleteAdds = id =>{
-        const proceed = window.confirm('Are you sure, want to delete this Adds?')
+    const handleDeleteProd = id =>{
+        const proceed = window.confirm('Are you sure you sold this product? if so delete it')
         if(proceed){
             fetch( `http://localhost:5000/stocksProduct/${id}`, {
                 method: 'DELETE'
@@ -22,7 +22,8 @@ const StokesProductCard = ({ categoryProduct }) => {
             .then(data => {
                 console.log(data)
                 if(data.deletedCount > 0) {
-                    toast.success('adds Deleted Successfully')
+                    alert('')
+                    toast.success('Deleted Successfully')
                     const remaining = prod.filter(pro => pro._id !== id)
                     setProd(remaining)
                     window.location.reload()
@@ -45,7 +46,7 @@ const StokesProductCard = ({ categoryProduct }) => {
                     <p>Purchased from - {cameFrom}</p>
                     <p>Purchased date - {date}</p>
                     <div className="card-actions">
-                        <button onClick={() => handleDeleteAdds(_id)} className="btn btn-primary">Delete</button>
+                        <button onClick={() => handleDeleteProd(_id)} className="btn btn-primary">Delete</button>
                     </div>
                 </div>
             </div>

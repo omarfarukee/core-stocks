@@ -1,7 +1,36 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const AddBorrowedProductsCard = ({borrowedProduct}) => {
-            const {productName, quantity,costPrice, image, borrowedDate, borrowedFrom,mrp} = borrowedProduct
+            const {productName, quantity,costPrice, image, borrowedDate, _id,borrowedFrom,mrp} = borrowedProduct
+
+            
+    const [prod, setProd] = useState([])
+
+    useEffect(() =>{
+        axios.get('http://localhost:5000/borrowed')
+        .then(data => setProd(data.data))
+    } ,[])
+
+    const handleDeleteProd = id =>{
+        const proceed = window.confirm('Are you sure you have confirmed this product to them within the refund? if so delete it')
+        if(proceed){
+            fetch( `http://localhost:5000/borrowed/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.deletedCount > 0) {
+                    toast.success('Deleted Successfully')
+                    const remaining = prod.filter(pro => pro._id !== id)
+                    setProd(remaining)
+                    window.location.reload()
+                }
+            })
+        }
+  }
     return (
         <div>
                  <div className="card w-96 bg-base-100 shadow-xl">
@@ -17,7 +46,7 @@ const AddBorrowedProductsCard = ({borrowedProduct}) => {
                     <p>Borrowed from - {borrowedFrom}</p>
                     <p>Borrowed date - {borrowedDate}</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button onClick={()=> handleDeleteProd(_id)} className="btn btn-primary">delete</button>
                     </div>
                 </div>
             </div>
