@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import AmountLendStockProducts from './AmountLendStockProducts';
 import AmountOfBorrowedStocks from './AmountOfBorrowedStocks';
 import AmountOFReturnProduct from './AmountOFReturnProduct';
@@ -7,14 +8,34 @@ import AmountOfStocksSold from './AmountOfStocksSold';
 import AmountReturnsBackProducts from './AmountReturnsBackProducts';
 
 const AllStocksDetails = () => {
-    const { data: purchaseStocks = [], refetch } = useQuery({
+    const {stocks, setStocks} = useState([])
+    const { data: purchaseStocks = [], refetch} = useQuery({
         queryKey: ['purchaseStocks'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/stocksProduct`);
             const data = await res.json();
             return data;
-        }
+        }  
     });
+    const handleDeleteStocks = id =>{
+        const proceed = window.confirm('Are you sure, want to delete this purchase stock?')
+        if(proceed){
+            fetch( `http://localhost:5000/stocksProduct/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.deletedCount > 0) {
+                    toast.success('purchase Stocks Deleted Successfully')
+                    const remaining = stocks.filter(stock => stock._id !== id)
+                    setStocks(remaining)
+                    refetch()
+                    window.location.reload()
+                }
+            })
+        }
+}
     return (
         <div>
             <div className='flex justify-center'>
@@ -44,7 +65,7 @@ const AllStocksDetails = () => {
                                 <td>{purchase.quantity}</td>
                                 <td>{purchase.mrp}Rs.</td>
                                 <td>{purchase.costPrice}Rs.</td>
-                                <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                                <td><button onClick={() => handleDeleteStocks(purchase._id)} className='btn btn-xs btn-danger'>Delete</button></td>
                             </tr>)
                         }
 

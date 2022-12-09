@@ -13,7 +13,7 @@ const StokesProductCard = ({ categoryProduct }) => {
     } ,[])
 
     const handleDeleteProd = id =>{
-        const proceed = window.confirm('Are you sure you sold this product? if so delete it')
+        const proceed = window.confirm('IMPORTANT! Make sure you have added this product to sold stock or Lend Stock, if you have done so you can now delete the product, Dont do otherwise. [note: if you want to delete permanently then you can delete]')
         if(proceed){
             fetch( `http://localhost:5000/stocksProduct/${id}`, {
                 method: 'DELETE'

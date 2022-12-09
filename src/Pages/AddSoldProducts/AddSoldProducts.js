@@ -51,7 +51,7 @@ const AddSoldProducts = () => {
                         .then(result => {
 
                             console.log(result)
-                            alert('its can take few moment please wait')
+                            alert('IMPORTANT! After adding the product from the category from which you are adding it, delete the product in that category otherwise the product will be added in Purchase Stock , Sold Stock both places.')
                             toast.success('added Sold Item successfully')
                             navigate('/')
                         })

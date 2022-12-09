@@ -1,7 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const AmountOfStocksSold = () => {
+    const {stocks, setStocks} = useState([])
     const { data: soldStocks = [], refetch } = useQuery({
         queryKey: ['soldStocks'],
         queryFn: async () => {
@@ -10,6 +12,25 @@ const AmountOfStocksSold = () => {
             return data;
         }
     });
+    const handleDeleteStocks = id =>{
+        const proceed = window.confirm('Are you sure, want to delete this sold stock?')
+        if(proceed){
+            fetch( `http://localhost:5000/sold/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.deletedCount > 0) {
+                    toast.success('sold Stock Deleted Successfully')
+                    const remaining = stocks.filter(stock => stock._id !== id)
+                    setStocks(remaining)
+                    refetch()
+                    window.location.reload()
+                }
+            })
+        }
+}
     return (
         <div>
         <div className='flex justify-center'>
@@ -37,7 +58,7 @@ const AmountOfStocksSold = () => {
                             <td>{sold.quantity}</td>
                             <td>{sold.mrp}Rs.</td>
                             <td>{sold.costPrice}Rs.</td>
-                            <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                            <td><button onClick={()=> handleDeleteStocks(sold._id)} className='btn btn-xs btn-danger'>Delete</button></td>
                         </tr>)
                     }
 

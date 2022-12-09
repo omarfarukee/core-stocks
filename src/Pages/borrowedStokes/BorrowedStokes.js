@@ -54,7 +54,7 @@ const BorrowedStokes = () => {
                 console.log(result)
                 alert('its can take few moment please wait')
                 toast.success('added borrowed Item successfully')
-                // navigate('/')
+                navigate('/')
             })
 
           }

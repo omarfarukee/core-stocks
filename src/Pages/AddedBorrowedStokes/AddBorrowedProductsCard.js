@@ -14,7 +14,7 @@ const AddBorrowedProductsCard = ({borrowedProduct}) => {
     } ,[])
 
     const handleDeleteProd = id =>{
-        const proceed = window.confirm('Are you sure you have confirmed this product to them within the refund? if so delete it')
+        const proceed = window.confirm('Make sure you have added this product in return back stock if you added then you can delete it ,otherwise dont delete')
         if(proceed){
             fetch( `http://localhost:5000/borrowed/${id}`, {
                 method: 'DELETE'
@@ -41,8 +41,8 @@ const AddBorrowedProductsCard = ({borrowedProduct}) => {
 
                     <h2 className="card-title">{productName}</h2>
                     <p>Quantity - {quantity}</p>
-                    <p>Cost - {costPrice}</p>
-                    <p>MRP - {mrp}</p>
+                    <p>Cost - {costPrice} Rs.</p>
+                    <p>MRP - {mrp} Rs.</p>
                     <p>Borrowed from - {borrowedFrom}</p>
                     <p>Borrowed date - {borrowedDate}</p>
                     <div className="card-actions">

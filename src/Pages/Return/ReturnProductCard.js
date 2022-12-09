@@ -13,7 +13,7 @@ const ReturnProductCard = ({returnProduct}) => {
     } ,[])
 
     const handleDeleteProd = id =>{
-        const proceed = window.confirm('Are you sure you have added this product to lending, if so delete it')
+        const proceed = window.confirm('Are you sure you have added this product to Lend Stock or Sold Stock, if so delete it')
         if(proceed){
             fetch( `http://localhost:5000/return/${id}`, {
                 method: 'DELETE'
@@ -40,8 +40,8 @@ const ReturnProductCard = ({returnProduct}) => {
 
                     <h2 className="card-title">{productName}</h2>
                     <p>Quantity - {quantity}</p>
-                    <p>Cost - {costPrice}</p>
-                    <p>MRP - {mrp}</p>
+                    <p>Cost - {costPrice} Rs.</p>
+                    <p>MRP - {mrp} Rs.</p>
                     <p>Return from - {returnFrom}</p>
                     <p>Return date - {returnDate}</p>
                     <div className="card-actions">

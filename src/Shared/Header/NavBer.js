@@ -14,7 +14,7 @@ const NavBer = () => {
     const headItems = <>
        
         <li className='font-bold text-sm w-32 h-14 items-center pl-6 text-center bg-white  ml-1 rounded-lg'><Link to='/home'>Home</Link></li>
-        <li className='font-bold text-sm w-32 h-14 items-center pl-2 text-center bg-white  ml-1 rounded-lg'><Link to='/addProducts'>Add Product</Link></li>
+        <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/addProducts'>Add purchased Pro</Link></li>
         <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/borrowedStokes'>Add Borrowed Products</Link></li>
         <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/returnStokes'>Add Return (prod)</Link></li>
         <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/addSoldProduct'>Add sold(prod)</Link></li>

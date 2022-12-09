@@ -14,7 +14,7 @@ const AbcProductCard = ({ category }) => {
                     {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
                     <div className="card-actions mt-20 grid grid-cols-2">
 
-                     <Link to={`/stocksProduct/${_id}`}><button className="btn btn-sm w-36 h-12">See Stokes</button></Link> 
+                     <Link to={`/stocksProduct/${_id}`}><button className="btn btn-sm w-36 h-12">Purchased Stokes</button></Link> 
                      <Link to={`/borrowed/${_id}`}><button className="btn btn-sm w-36 h-12">Borrowed Stokes</button></Link> 
                      <Link to={`/return/${_id}`}><button className="btn btn-sm w-36 h-12">Returned Stokes</button></Link> 
 

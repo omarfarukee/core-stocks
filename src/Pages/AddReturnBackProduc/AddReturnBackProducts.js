@@ -52,7 +52,7 @@ const AddReturnBackProducts = () => {
                         .then(result => {
 
                             console.log(result)
-                            alert('its can take few moment please wait')
+                            alert('IMPORTANT! After adding the product from the borrowed , delete the product in that category otherwise the product will be added in Borrowed Stock , Return Back stock(stock out) Stock both places.')
                             toast.success('added Lend Product successfully')
                             navigate('/')
                         })
