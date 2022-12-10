@@ -46,7 +46,7 @@ const NavBer = () => {
                         {headItems}
                     </ul>
                 </div>
-                <Link to='/home'><a  className="btn btn-ghost normal-case text-xl font-bold bg-yellow-100 hover:bg-green-200 hover:text-black tacks"><img src={img} className='w-10 lg:block hidden' alt="" /> Core-Stocks</a></Link>   
+                <Link to='/home'><a  className="btn btn-ghost normal-case text-xl font-bold bg-yellow-100 hover:bg-green-200 hover:text-black tacks"><div className='flex items-center'><img src={img} className='w-10 lg:block hidden' alt="" /> Core-Stocks</div></a></Link>   
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
