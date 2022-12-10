@@ -14,7 +14,7 @@ const NavBer = () => {
       }
     const headItems = <>
        
-        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/home'>Home</Link></li>
+        <li className='font-bold  n-btn   lg:border pl-4 ml-1 rounded-lg'><Link to='/home'>Home</Link></li>
         <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/addProducts'>Add purchased(prod)</Link></li>
         <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/borrowedStokes'>Add Borrowed(Prod)</Link></li>
         <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/returnStokes'>Add Return (prod)</Link></li>
@@ -46,7 +46,7 @@ const NavBer = () => {
                         {headItems}
                     </ul>
                 </div>
-                <Link to='/home'><a  className="btn btn-ghost normal-case text-xl font-bold bg-yellow-100 hover:bg-green-200 hover:text-black tacks"><div className='flex items-center'><img src={img} className='w-10 lg:block hidden' alt="" /> Core-Stocks</div></a></Link>   
+                <Link to='/home'><a  className="btn btn-ghost normal-case text-xl font-bold bg-yellow-100 hover:bg-green-200 hover:text-black tacks"><div className='flex items-center'><img src={img} className='w-10 lg:block hidden' alt="" /><span className='text-sm'>Core-Stocks</span> </div></a></Link>   
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
