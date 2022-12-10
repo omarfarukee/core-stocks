@@ -21,6 +21,7 @@ const NavBer = () => {
         <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/addLendProduct'>Add lend(prod)</Link></li>
         <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/addReturnBackProduct'>Add Return Back(prod)</Link></li>
         <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/allStocksDetails'>All Stocks Details</Link></li>
+        <li className='font-bold text-sm w-32 h-14 items-center  text-center bg-white  ml-1 rounded-lg'><Link to='/profitAccount'>Profit</Link></li>
 
         {
             user?.uid ? <></> :  <li className='font-bold text-sm text-center bg-white  ml-1 rounded-lg'><Link to='/login'> login</Link></li>

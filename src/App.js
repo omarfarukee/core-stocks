@@ -20,6 +20,9 @@ import AddLendProducts from './Pages/AddLendProdcts/AddLendProducts';
 import ReturnBackProducts from './Pages/ReturnBack/ReturnBackProducts';
 import AddReturnBackProducts from './Pages/AddReturnBackProduc/AddReturnBackProducts';
 import AllStocksDetails from './Pages/AllStocksDetails/AllStocksDetails';
+import Partners from './Partners/Partners';
+import AccountOdCompany from './Partners/AccountsOfCompany/AccountOdCompany';
+import CalculateShares from './Partners/CalculeteShares/CalculateShares';
 
 function App() {
   const router = createBrowserRouter([
@@ -72,6 +75,14 @@ function App() {
             element:<PrivateRoute><AllStocksDetails></AllStocksDetails></PrivateRoute>
           },
           {
+            path:'/profitAccount',
+            element:<PrivateRoute><Partners></Partners></PrivateRoute>
+          },
+          {
+            path:'/companyAccount',
+            element:<PrivateRoute><AccountOdCompany></AccountOdCompany></PrivateRoute>
+          },
+          {
             path:'/stocksProduct/:id',
             element:<PrivateRoute><StocksProduct></StocksProduct></PrivateRoute>,
             loader:async ({params}) =>{
@@ -111,6 +122,13 @@ function App() {
             element:<PrivateRoute><ReturnBackProducts></ReturnBackProducts></PrivateRoute>,
             loader:async ({params}) =>{
             return fetch(`http://localhost:5000/returnBack/${params.id}`)
+            }
+          },
+          {
+            path:'/profitAccount/:id',
+            element:<PrivateRoute><CalculateShares></CalculateShares></PrivateRoute>,
+            loader:async ({params}) =>{
+            return fetch(`http://localhost:5000/profitAccount/${params.id}`)
             }
           }
         ]
