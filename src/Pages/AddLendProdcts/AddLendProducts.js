@@ -25,7 +25,7 @@ const AddLendProducts = () => {
                 if (imgData.success) {
                     console.log(imgData.data.url)
 
-    
+
                     const product = {
                         productName: data.productName,
                         image: imgData.data.url,
@@ -63,79 +63,82 @@ const AddLendProducts = () => {
 
     return (
         <div>
-            <div className='flex justify-center text-3xl font-bold'><h1>Add Lend product</h1></div>
-            <form onSubmit={handleSubmit(handleAddItem)}>
+            <div className='flex justify-center mb-10 mt-10 text-3xl font-bold'><h1>Add Lend product (Stock out)</h1></div>
+            <div className='flex justify-center'>
+                <form onSubmit={handleSubmit(handleAddItem)}>
 
-                <div className='lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 bg-gray-300 p-5 rounded-2xl ml-3'>
+                    <div className='lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 bg-gray-300 p-5 rounded-2xl ml-3'>
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Product Name</span></label>
-                        <input type="text" {...register("productName", {
-                            required: "Required"
-                        })} className="input input-bordered w-full max-w-xs" />
-                        {errors.productName && <p className='text-red-500'>{errors.productName.message}</p>}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"> <span className="label-text">Product Name</span></label>
+                            <input type="text" {...register("productName", {
+                                required: "Required"
+                            })} className="input input-bordered w-full max-w-xs" />
+                            {errors.productName && <p className='text-red-500'>{errors.productName.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"> <span className="label-text">Quantity</span></label>
+                            <input type="number" {...register("quantity", {
+                                required: "Required"
+                            })} className="input input-bordered w-full max-w-xs" />
+                            {errors.quantity && <p className='text-red-500'>{errors.quantity.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"> <span className="label-text">Cost</span></label>
+                            <input type="number" {...register("costPrice", {
+                                required: "Required"
+                            })} className="input input-bordered w-full max-w-xs" />
+                            {errors.costPrice && <p className='text-red-500'>{errors.costPrice.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"> <span className="label-text">M.R.P</span></label>
+                            <input type="number" {...register("mrp", {
+                                required: "Required"
+                            })} className="input input-bordered w-full max-w-xs" />
+                            {errors.mrp && <p className='text-red-500'>{errors.mrp.message}</p>}
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"> <span className="label-text">Lend to</span></label>
+                            <input type="text" {...register("lendTo", {
+                                required: "Required"
+                            })} className="input input-bordered w-full max-w-xs" />
+                            {errors.lendTo && <p className='text-red-500'>{errors.lendTo.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"> <span className="label-text">Lend Date 'dd/mm/yyyy'</span></label>
+                            <input type="text" {...register("lendDate", {
+                                required: "Required"
+                            })} className="input input-bordered w-full max-w-xs" />
+                            {errors.lendDate && <p className='text-red-500'>{errors.lendDate.message}</p>}
+                        </div>
+                        <div className=''>
+                            <label className="label"> <span className="label-text">Choose Category</span></label>
+                            <select className="select select-bordered  w-full max-w-xs" {...register("categoryId")}>
+                                <option value="63917f1a9d1e4e778fde857a">A- T-shirt</option>
+                                <option value="63917f1a9d1e4e778fde857b">B- Pants</option>
+                                <option value="63917f1a9d1e4e778fde857c">C- Shoes</option>
+                            </select>
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"> <span className="label-text">Photo (photo Should be png/jpg format)</span></label>
+                            <input type="file" {...register("images", {
+                                required: 'Required'
+                            })} className="input input-bordered w-full max-w-xs" />
+                            {errors.images && <p className='text-red-500'>{errors.images.message}</p>}
+                        </div>
+                    </div>
+                    <div className='flex justify-center'>
+                        <input className='btn btn-success  mt-4 ' value="add this" type="submit" />
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Quantity</span></label>
-                        <input type="number" {...register("quantity", {
-                            required: "Required"
-                        })} className="input input-bordered w-full max-w-xs" />
-                        {errors.quantity && <p className='text-red-500'>{errors.quantity.message}</p>}
-                    </div>
+                </form>
+            </div>
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Cost</span></label>
-                        <input type="number" {...register("costPrice", {
-                            required: "Required"
-                        })} className="input input-bordered w-full max-w-xs" />
-                        {errors.costPrice && <p className='text-red-500'>{errors.costPrice.message}</p>}
-                    </div>
-
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">M.R.P</span></label>
-                        <input type="number" {...register("mrp", {
-                            required: "Required"
-                        })} className="input input-bordered w-full max-w-xs" />
-                        {errors.mrp && <p className='text-red-500'>{errors.mrp.message}</p>}
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Lend to</span></label>
-                        <input type="text" {...register("lendTo", {
-                            required: "Required"
-                        })} className="input input-bordered w-full max-w-xs" />
-                        {errors.lendTo && <p className='text-red-500'>{errors.lendTo.message}</p>}
-                    </div>
-
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Lend Date 'dd/mm/yyyy'</span></label>
-                        <input type="text" {...register("lendDate", {
-                            required: "Required"
-                        })} className="input input-bordered w-full max-w-xs" />
-                        {errors.lendDate && <p className='text-red-500'>{errors.lendDate.message}</p>}
-                    </div>
-                    <div className=''>
-                        <label className="label"> <span className="label-text">Choose Category</span></label>
-                        <select className="select select-bordered  w-full max-w-xs" {...register("categoryId")}>
-                            <option value="63917f1a9d1e4e778fde857a">A- T-shirt</option>
-                            <option value="63917f1a9d1e4e778fde857b">B- Pants</option>
-                            <option value="63917f1a9d1e4e778fde857c">C- Shoes</option>
-                        </select>
-                    </div>
-
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Photo (photo Should be png/jpg format)</span></label>
-                        <input type="file" {...register("images", {
-                            required: 'Required'
-                        })} className="input input-bordered w-full max-w-xs" />
-                        {errors.images && <p className='text-red-500'>{errors.images.message}</p>}
-                    </div>
-                </div>
-                <div className='flex justify-center'>
-                    <input className='btn btn-success  mt-4 ' value="add this" type="submit" />
-                </div>
-
-            </form>
         </div>
     );
 };

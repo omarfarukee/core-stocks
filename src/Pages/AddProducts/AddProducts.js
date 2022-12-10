@@ -65,10 +65,11 @@ const AddProducts = () => {
 
     return (
         <div>
-            <div className='flex justify-center text-3xl font-bold'><h1>Add item(Purchased by a factory or agency)</h1></div>
-            <form onSubmit={handleSubmit(handleAddItem)}>
+            <div className='flex justify-center text-3xl font-bold mt-10 mb-10'><h1>Add Product(Purchased by a factory or agency)</h1></div>
+            <div className=' flex justify-center'>
+                <form onSubmit={handleSubmit(handleAddItem)}>
 
-                <div className='lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 bg-gray-300 p-5 rounded-2xl ml-3'>
+                <div className='lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 bg-gray-200 p-5 rounded-2xl'>
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Product Name</span></label>
@@ -139,6 +140,8 @@ const AddProducts = () => {
                 </div>
 
             </form>
+            </div>
+            
         </div>
 
 

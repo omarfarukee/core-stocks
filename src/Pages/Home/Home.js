@@ -4,7 +4,7 @@ import AbcProducts from '../AbcProducts/AbcProducts';
 const Home = () => {
     return (
         <div>
-            <h1>this is home</h1>
+            
             <AbcProducts></AbcProducts>
         </div>
     );

@@ -62,8 +62,9 @@ const AddReturnStokes = () => {
     }
     return (
         <div>
-            <div className='flex justify-center text-3xl font-bold'><h1>Add item(Returned)</h1></div>
-            <form onSubmit={handleSubmit(handleAddReturnProduct)}>
+            <div className='flex justify-center mb-10 mt-10 text-3xl font-bold'><h1>Add product(Returned)</h1></div>
+            <div className='flex justify-center'>
+ <form onSubmit={handleSubmit(handleAddReturnProduct)}>
 
                 <div className='lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 bg-gray-300 p-5 rounded-2xl ml-3'>
 
@@ -136,6 +137,8 @@ const AddReturnStokes = () => {
                 </div>
 
             </form>
+            </div>
+           
         </div>
     );
 };
