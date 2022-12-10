@@ -7,7 +7,7 @@ const AmountOFReturnProduct = () => {
     const { data: returnStocks = [], refetch } = useQuery({
         queryKey: ['returnStocks'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/return`);
+            const res = await fetch(`https://starting-core-server.vercel.app/return`);
             const data = await res.json();
             return data;
         }
@@ -15,7 +15,7 @@ const AmountOFReturnProduct = () => {
     const handleDeleteStocks = id =>{
         const proceed = window.confirm('Are you sure, want to delete this return stock?')
         if(proceed){
-            fetch( `http://localhost:5000/return/${id}`, {
+            fetch( `https://starting-core-server.vercel.app/return/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

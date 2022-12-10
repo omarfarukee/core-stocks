@@ -8,7 +8,7 @@ const AccountOdCompany = () => {
     const { data: accounts = [] , refetch} = useQuery({
         queryKey: ['account'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/profitAccount');
+            const res = await fetch('https://starting-core-server.vercel.app/profitAccount');
             const data = await res.json();
             console.log(data)
             return data;
@@ -19,7 +19,7 @@ const AccountOdCompany = () => {
     const handleDeleteAccount = id =>{
         const proceed = window.confirm('Are you sure, want to delete this Account')
         if(proceed){
-            fetch( `http://localhost:5000/profitAccount/${id}`, {
+            fetch( `https://starting-core-server.vercel.app/profitAccount/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

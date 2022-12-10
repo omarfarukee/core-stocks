@@ -39,7 +39,7 @@ const BorrowedStokes = () => {
                     }
 
 
-                    fetch('http://localhost:5000/borrowed', {
+                    fetch('https://starting-core-server.vercel.app/borrowed', {
 
                         method: 'POST',
                         headers: {

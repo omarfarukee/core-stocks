@@ -20,7 +20,7 @@ const Partners = () => {
             thirdPartner: data.thirdPartner
         }
 
-        fetch('http://localhost:5000/profitAccount', {
+        fetch('https://starting-core-server.vercel.app/profitAccount', {
 
             method: 'POST',
             headers: {

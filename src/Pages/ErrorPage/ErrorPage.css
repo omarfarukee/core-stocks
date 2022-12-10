@@ -1,0 +1,17 @@
+.error{
+    text-align: center;
+}
+.error h1{
+    font-size:80px;
+    font-weight: 900;
+}
+.error p{
+    font-weight:600;
+    font-size:30px;
+}
+.sad{
+    font-size:150px;
+    color: brown;
+    display: flex;
+    justify-content: center;
+}

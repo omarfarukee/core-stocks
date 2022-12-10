@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import img from '../../image/pngwing.com (4) - Copy.png'
 import './Navber.css'
 const NavBer = () => {
     const {logOut, user} = useContext(AuthContext)
@@ -13,21 +14,21 @@ const NavBer = () => {
       }
     const headItems = <>
        
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/home'>Home</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/addProducts'>Add purchased(prod)</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/borrowedStokes'>Add Borrowed(Prod)</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/returnStokes'>Add Return (prod)</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/addSoldProduct'>Add sold(prod)</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/addLendProduct'>Add lend(prod)</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/addReturnBackProduct'>Add Return Back(prod)</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/allStocksDetails'>All Stocks Details</Link></li>
-        <li className='font-bold  n-btn   bg-white  ml-1 rounded-lg'><Link to='/profitAccount'>Create Shares Account</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/home'>Home</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/addProducts'>Add purchased(prod)</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/borrowedStokes'>Add Borrowed(Prod)</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/returnStokes'>Add Return (prod)</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/addSoldProduct'>Add sold(prod)</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/addLendProduct'>Add lend(prod)</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/addReturnBackProduct'>Add Return Back(prod)</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/allStocksDetails'>All Stocks Details</Link></li>
+        <li className='font-bold  n-btn   lg:border  ml-1 rounded-lg'><Link to='/profitAccount'>Create Shares Account</Link></li>
 
         {/* {
             user?.uid ? <></> :  <li className='font-bold text-sm text-center n-btn  bg-white  ml-1 rounded-lg'><Link to='/login'> login</Link></li>
         } */}
        {
-             user?.uid ? <></> : <li className='font-bold text-sm text-center n-btn  bg-white  ml-1 rounded-lg'><Link to='/signUp'>Sign up</Link></li>
+             user?.uid ? <></> : <li className='font-bold text-sm text-center n-btn  bg-yellow-300  ml-1 rounded-lg'><Link to='/signUp'>Sign up</Link></li>
        }
        
     
@@ -45,7 +46,7 @@ const NavBer = () => {
                         {headItems}
                     </ul>
                 </div>
-                <Link to='/home'><a  className="btn btn-ghost normal-case text-xl font-bold hover:bg-green-200 hover:text-black tacks">Core-Stocks</a></Link>   
+                <Link to='/home'><a  className="btn btn-ghost normal-case text-xl font-bold bg-yellow-100 hover:bg-green-200 hover:text-black tacks"><img src={img} className='w-10 lg:block hidden' alt="" /> Core-Stocks</a></Link>   
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

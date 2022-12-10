@@ -39,7 +39,7 @@ const AddLendProducts = () => {
                     }
 
 
-                    fetch('http://localhost:5000/lend', {
+                    fetch('https://starting-core-server.vercel.app/lend', {
 
                         method: 'POST',
                         headers: {

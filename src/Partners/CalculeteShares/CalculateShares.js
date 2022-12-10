@@ -46,13 +46,14 @@ const CalculateShares = () => {
 
         setThird(thirdGot)
         if (costs > sells) {
-            setTitle('lost')
+            setTitle('loss')
         }
         else {
             setTitle('profit')
         }
-
-        console.log(secondShare, amount)
+    
+        
+        // console.log(secondShare, amount)
     }
     return (
         <div className=''>
@@ -101,7 +102,12 @@ const CalculateShares = () => {
                     </div>
                     <h1 className='text-2xl'>{accountDetails[0].firstPartner}'s {title} = {first} Rs.</h1>
                     <h1 className='text-2xl'>{accountDetails[0].secondPartner}'s {title} = {second} Rs.</h1>
-                    <h1 className='text-2xl'>{accountDetails[0].thirdPartner}'s {title} = {third} Rs.</h1>
+                {
+                    accountDetails[0].thirdPartner && <h1 className='text-2xl'>{accountDetails[0].thirdPartner}'s {title} = {third} Rs.</h1>
+                }
+                    
+
+
                 </div>
             </div>
         </div>

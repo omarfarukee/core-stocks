@@ -9,14 +9,14 @@ const AddBorrowedProductsCard = ({borrowedProduct}) => {
     const [prod, setProd] = useState([])
 
     useEffect(() =>{
-        axios.get('http://localhost:5000/borrowed')
+        axios.get('https://starting-core-server.vercel.app/borrowed')
         .then(data => setProd(data.data))
     } ,[])
 
     const handleDeleteProd = id =>{
         const proceed = window.confirm('Make sure you have added this product in return back stock if you added then you can delete it ,otherwise dont delete')
         if(proceed){
-            fetch( `http://localhost:5000/borrowed/${id}`, {
+            fetch( `https://starting-core-server.vercel.app/borrowed/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

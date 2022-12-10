@@ -23,11 +23,13 @@ import AllStocksDetails from './Pages/AllStocksDetails/AllStocksDetails';
 import Partners from './Partners/Partners';
 import AccountOdCompany from './Partners/AccountsOfCompany/AccountOdCompany';
 import CalculateShares from './Partners/CalculeteShares/CalculateShares';
+import ErrorPage from './Pages/ErrorPage/ErrorPage';
 
 function App() {
   const router = createBrowserRouter([
       {
         path: '/',
+        errorElement:<ErrorPage></ErrorPage>,
         element:<Main></Main>,
         children:[
           {
@@ -86,49 +88,49 @@ function App() {
             path:'/stocksProduct/:id',
             element:<PrivateRoute><StocksProduct></StocksProduct></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/stocksProduct/${params.id}`)
+            return fetch(`https://starting-core-server.vercel.app/stocksProduct/${params.id}`)
             }
           },
           {
             path:'/borrowed/:id',
             element:<PrivateRoute><AddedBorrowedStokes></AddedBorrowedStokes></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/borrowed/${params.id}`)
+            return fetch(`https://starting-core-server.vercel.app/borrowed/${params.id}`)
             }
           },
           {
             path:'/return/:id',
             element:<PrivateRoute><ReturnProduct></ReturnProduct></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/return/${params.id}`)
+            return fetch(`https://starting-core-server.vercel.app/return/${params.id}`)
             }
           },
           {
             path:'/sold/:id',
             element:<PrivateRoute><SoldProduct></SoldProduct></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/sold/${params.id}`)
+            return fetch(`https://starting-core-server.vercel.app/sold/${params.id}`)
             }
           },
           {
             path:'/lend/:id',
             element:<PrivateRoute><LendProducts></LendProducts></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/lend/${params.id}`)
+            return fetch(`https://starting-core-server.vercel.app/lend/${params.id}`)
             }
           },
           {
             path:'/returnBack/:id',
             element:<PrivateRoute><ReturnBackProducts></ReturnBackProducts></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/returnBack/${params.id}`)
+            return fetch(`https://starting-core-server.vercel.app/returnBack/${params.id}`)
             }
           },
           {
             path:'/profitAccount/:id',
             element:<PrivateRoute><CalculateShares></CalculateShares></PrivateRoute>,
             loader:async ({params}) =>{
-            return fetch(`http://localhost:5000/profitAccount/${params.id}`)
+            return fetch(`https://starting-core-server.vercel.app/profitAccount/${params.id}`)
             }
           }
         ]

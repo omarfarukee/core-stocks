@@ -8,14 +8,14 @@ const ReturnProductCard = ({returnProduct}) => {
     const [prod, setProd] = useState([])
 
     useEffect(() =>{
-        axios.get('http://localhost:5000/return')
+        axios.get('https://starting-core-server.vercel.app/return')
         .then(data => setProd(data.data))
     } ,[])
 
     const handleDeleteProd = id =>{
         const proceed = window.confirm('Are you sure you have added this product to Lend Stock or Sold Stock, if so delete it')
         if(proceed){
-            fetch( `http://localhost:5000/return/${id}`, {
+            fetch( `https://starting-core-server.vercel.app/return/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

@@ -7,14 +7,14 @@ const LendProductsCard = ({ lendProduct }) => {
     const [prod, setProd] = useState([])
 
     useEffect(() =>{
-        axios.get('http://localhost:5000/lend')
+        axios.get('https://starting-core-server.vercel.app/lend')
         .then(data => setProd(data.data))
     } ,[])
 
     const handleDeleteProd = id =>{
         const proceed = window.confirm('Are you sure want to delete this lend product?')
         if(proceed){
-            fetch( `http://localhost:5000/lend/${id}`, {
+            fetch( `https://starting-core-server.vercel.app/lend/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

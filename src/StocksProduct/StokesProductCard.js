@@ -8,14 +8,14 @@ const StokesProductCard = ({ categoryProduct }) => {
     const [prod, setProd] = useState([])
 
     useEffect(() =>{
-        axios.get('http://localhost:5000/stocksProduct')
+        axios.get('https://starting-core-server.vercel.app/stocksProduct')
         .then(data => setProd(data.data))
     } ,[])
 
     const handleDeleteProd = id =>{
         const proceed = window.confirm('IMPORTANT! Make sure you have added this product to sold stock or Lend Stock, if you have done so you can now delete the product, Dont do otherwise. [note: if you want to delete permanently then you can delete]')
         if(proceed){
-            fetch( `http://localhost:5000/stocksProduct/${id}`, {
+            fetch( `https://starting-core-server.vercel.app/stocksProduct/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

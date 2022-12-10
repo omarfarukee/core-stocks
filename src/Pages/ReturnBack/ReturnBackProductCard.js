@@ -7,14 +7,14 @@ const ReturnBackProductCard = ({returnBackProduct}) => {
     const [prod, setProd] = useState([])
 
     useEffect(() =>{
-        axios.get('http://localhost:5000/returnBack')
+        axios.get('https://starting-core-server.vercel.app/returnBack')
         .then(data => setProd(data.data))
     } ,[])
 
     const handleDeleteProd = id =>{
         const proceed = window.confirm('Are you sure you want to delete this return Back product?')
         if(proceed){
-            fetch( `http://localhost:5000/returnBack/${id}`, {
+            fetch( `https://starting-core-server.vercel.app/returnBack/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

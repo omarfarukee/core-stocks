@@ -1,0 +1,7 @@
+.backs{
+    width: 100%;
+    height:80vh;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(rgba(0,0,0,0.50),rgba(0.0,0,0.50)), url(../../image/F2Z7Lbz2tLP5K35GcEYFTg-1200-80.jpg);
+}

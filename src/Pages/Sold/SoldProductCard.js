@@ -7,14 +7,14 @@ const SoldProductCard = ({soldProduct}) => {
         const [prod, setProd] = useState([])
 
         useEffect(() =>{
-            axios.get('http://localhost:5000/sold')
+            axios.get('https://starting-core-server.vercel.app/sold')
             .then(data => setProd(data.data))
         } ,[])
     
         const handleDeleteProd = id =>{
             const proceed = window.confirm('Are you sure want to delete this sold product?')
             if(proceed){
-                fetch( `http://localhost:5000/sold/${id}`, {
+                fetch( `https://starting-core-server.vercel.app/sold/${id}`, {
                     method: 'DELETE'
                 })
                 .then(res => res.json())
