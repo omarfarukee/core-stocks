@@ -6,8 +6,8 @@ const CalculateShares = () => {
     const [second, setSecond] = useState(0)
     const [third, setThird] = useState(0)
     const [product, setProduct] = useState('')
-    const [quantity, setQuantity] = useState('')
-
+    const [quantity, setQuantity] = useState('0')
+    const [title, setTitle] = useState('')
     const accountDetails = useLoaderData()
     console.log(accountDetails[0])
 
@@ -24,30 +24,35 @@ const CalculateShares = () => {
             const cost = form.cost.value
             const costs = parseInt(cost)
 
+
             const sell = form.sell.value
             const sells = parseInt(sell)
 
+            const amount = Math.abs(sells - costs)
+            
             const firstShare = form.firstShare.value
             const firstShares = parseInt(firstShare)
-            const firstGot = (firstShares * sells) / 100
+            const firstGot = (firstShares * amount) / 100
             setFirst(firstGot)
 
             const secondShare = form.secondShare.value
             const secondShares = parseInt(secondShare)
-            const secondGot = (secondShare * sells) / 100 
+            const secondGot = (secondShares * amount) / 100 
             setSecond(secondGot)
 
             const thirdShare = form.thirdShare.value 
             const thirdShares = parseInt(thirdShare)
-            const thirdGot = (thirdShares * sells) / 100
+            const thirdGot = (thirdShares * amount) / 100
+
             setThird(thirdGot)
-
-            if(third === NaN) {
-
-                return ('0')
-                
+            if(costs > sells){
+                setTitle('lost')
             }
-        console.log(costs, sells, firstShares, secondShares, thirdShares, productName, firstGot)
+            else{
+                setTitle('profit')
+            }
+
+        console.log(secondShare,amount)
     }
     return (
         <div className=''>
@@ -77,12 +82,16 @@ const CalculateShares = () => {
                     <button className='btn btn-success'>Calculate Shares</button>
                 </form>
             </div>
-        <div className='flex justify-center'>
-            <div>
-                 <h1>product name = {product}</h1>
-                <h1 className='text-2xl'>{accountDetails[0].firstPartner} got = {first} Rs.</h1>
-                <h1 className='text-2xl'>{accountDetails[0].secondPartner} got = {second} Rs.</h1>
-                <h1 className='text-2xl'>{accountDetails[0].thirdPartner} got = {third} Rs.</h1>
+        <div className='flex justify-center border p-10 mt-10'>
+            <div className='border p-16 bg-gray-200 rounded-lg'>
+                <div className='flex justify-between mb-5'>
+                    <h1 className='mr-3'>product name = {product}</h1>
+                    <h1>Quantity= {quantity}</h1>
+                </div>
+                 
+                <h1 className='text-2xl'>{accountDetails[0].firstPartner} {title} = {first} Rs.</h1>
+                <h1 className='text-2xl'>{accountDetails[0].secondPartner} {title} = {second} Rs.</h1>
+                <h1 className='text-2xl'>{accountDetails[0].thirdPartner} {title} = {third} Rs.</h1>
             </div>
         </div>
         </div>
